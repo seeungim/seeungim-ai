@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>음성 인식 AI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #recognize-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #response-text {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>음성 인식 AI</h1>
+    <button id="recognize-btn">말씀하세요!</button>
+    <div id="response-text"></div>
+
+    <script>
+        document.getElementById('recognize-btn').addEventListener('click', function() {
+            // 버튼을 클릭하면 서버에 음성 인식 요청을 보냄
+            fetch('/speech', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    // 서버에서 받아온 응답을 화면에 표시
+                    document.getElementById('response-text').innerText = data.response;
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+
+</body>
+</html>
