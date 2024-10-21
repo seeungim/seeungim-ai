@@ -1,1 +1,2 @@
-google.com, 8262-2149-9353-2432, DIRECT, f08c47fec0942fa0
+google.com, pub-3622123394030954, DIRECT, f08c47fec0942fa0
+# Updated on [2024-10-21]
